@@ -41,7 +41,8 @@ const ASSETS = [
     { id: 'mesa-v2', nombre: 'Mesa V2', tag: '02_CONSUMO', img: 'img/Ext_Mesa_V2_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Ext_Mesa_V2.glb', specs: { 'Polígonos': '734', 'Materiales': 'Metal, Pintura', 'Peso': '3.3 MB' } },
     { id: 'mesa-v3', nombre: 'Mesa V3', tag: '02_CONSUMO', img: 'img/Ext_Mesa_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Ext_Mesa_V3.glb', specs: { 'Polígonos': '3120', 'Materiales': 'Madera, Metal', 'Peso': '4.3 MB' } },
     { id: 'silla-v1', nombre: 'Silla V1', tag: '02_CONSUMO', img: 'img/Ext_Silla_V1_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Ext_Silla_V1.glb', specs: { 'Polígonos': '2976', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.9 MB' } },
-    { id: 'silla-v3', nombre: 'Silla V3', tag: '02_CONSUMO', img: 'img/Ext_Silla_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Ext_Silla_V3.glb', specs: { 'Polígonos': '394', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.0 MB' } }
+    { id: 'silla-v3', nombre: 'Silla V3', tag: '02_CONSUMO', img: 'img/Ext_Silla_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Ext_Silla_V3.glb', specs: { 'Polígonos': '394', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.0 MB' } },
+    { id: 'silla-barra', nombre: 'Silla Barra', tag: '02_CONSUMO', img: 'img/Silla_Barra_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_consumo/Silla_Barra.glb', specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '12.2 MB' } }
 
 ];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
