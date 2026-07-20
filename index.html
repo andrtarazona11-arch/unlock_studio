@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlock Studio | Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Catálogo interactivo de assets 3D de Unlock Studio.">
+    <title>Unlock Studio // Asset Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+    <!-- Overlays atmosféricos -->
+    <div class="fx-grain" aria-hidden="true"></div>
+    <div class="fx-scanlines" aria-hidden="true"></div>
+    <div class="fx-mesh" aria-hidden="true"></div>
 
     <div class="contenedor-principal">
-        <aside class="sidebar">
+
+        <!-- ============ SIDEBAR / HUD PANEL ============ -->
+        <aside class="sidebar" data-hud>
             <div class="logo-area">
                 <img src="img/logo_unlock.png" alt="Unlock Studio">
             </div>
 
-            <div class="categorias-area">
-                <h3>Categorías</h3>
+            <div class="hud-status">
+                <span class="dot"></span>
+                <span>SYSTEM ONLINE</span>
+                <span class="hud-status__ver">v2.0</span>
+            </div>
+
+            <nav class="categorias-area" aria-label="Categorías de modelos">
+                <h3><span class="tick">//</span> Categorías</h3>
                 <details class="categoria" open>
                     <summary>Barra de Servicio</summary>
                     <ul>
-                        <li><a href="#">Barra Auxiliar</a></li>
+                        <li><a href="#" class="activo">Barra Auxiliar</a></li>
                         <li><a href="#">Barra Principal V1</a></li>
                         <li><a href="#">Barra Principal V2</a></li>
                         <li><a href="#">Vitrina Postres V1</a></li>
@@ -29,64 +44,140 @@
                         <li><a href="#">Vitrina Postres V3</a></li>
                     </ul>
                 </details>
+            </nav>
+
+            <div class="hud-footer">
+                <span>UNLOCK_STUDIO</span>
+                <span>© 2026</span>
             </div>
         </aside>
 
-        <main class="contenedor-catalogo">
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barra_auxiliar/Barra_Auxiliar.glb')">
-                <img src="img/Barra_Auxiliar_screenshot.png" class="img-catalogo" alt="Barra Auxiliar">
-                <h3>Barra Auxiliar</h3>
-            </div>
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barras/Barra_V1.glb')">
-                <img src="img/Barra_V1_screenshot.png" class="img-catalogo" alt="Barra Principal V1">
-                <h3>Barra Principal V1</h3>
-            </div>
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barras/Barra_V2.glb')">
-                <img src="img/Barra_V2_screenshot.png" class="img-catalogo" alt="Barra Principal V2">
-                <h3>Barra Principal V2</h3>
-            </div>
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V1.glb')">
-                <img src="img/Vitrina_Postres_V1_screenshot.png" class="img-catalogo" alt="Vitrina Postres V1">
-                <h3>Vitrina Postres V1</h3>
-            </div>
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V2.glb')">
-                <img src="img/Vitrina_Postres_V2_screenshot.png" class="img-catalogo" alt="Vitrina Postres V2">
-                <h3>Vitrina Postres V2</h3>
-            </div>
-            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V3.glb')">
-                <img src="img/Vitrina_Postres_V3_screenshot.png" class="img-catalogo" alt="Vitrina Postres V3">
-                <h3>Vitrina Postres V3</h3>
-            </div>
-        </main>
-    </div>
+        <!-- ============ CONTENIDO ============ -->
+        <div class="contenedor-contenido">
 
-    <div id="modal-visor" class="modal">
-        <span class="cerrar-modal">&times;</span>
-        <div id="contenedor-visor" class="contenido-modal">
-            <!-- El visor se inyecta dinámicamente aquí -->
+            <header class="topbar" data-hud>
+                <div class="topbar__crumb">
+                    <span>ASSET_LIBRARY</span>
+                    <span class="sep">/</span>
+                    <span class="hl">BARRA_DE_SERVICIO</span>
+                </div>
+                <div class="buscador">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="search" id="buscador" placeholder="BUSCAR ASSET…" aria-label="Buscar modelo">
+                </div>
+            </header>
+
+            <!-- HERO -->
+            <section class="hero">
+                <span class="hero__eyebrow">// CATÁLOGO 3D INTERACTIVO</span>
+                <h1 class="hero__title">BARRA DE<br><span>SERVICIO</span></h1>
+                <p class="hero__sub">Explora, rota e inspecciona cada asset en tiempo real. Modelos listos para producción, renderizados en tu navegador.</p>
+                <div class="hero__stats">
+                    <div class="stat"><b>06</b><span>ASSETS</span></div>
+                    <div class="stat"><b>GLB</b><span>FORMATO</span></div>
+                    <div class="stat"><b>4K</b><span>TEXTURAS</span></div>
+                    <div class="stat"><b>RT</b><span>TIEMPO REAL</span></div>
+                </div>
+            </section>
+
+            <!-- CATÁLOGO -->
+            <main class="contenedor-catalogo" id="catalogo">
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Barra_auxiliar/Barra_Auxiliar.glb">
+                    <span class="asset-index">001</span>
+                    <div class="asset-media">
+                        <img src="img/Barra_Auxiliar_screenshot.png" alt="Barra Auxiliar" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">BARRA</span>
+                        <h3>Barra Auxiliar</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Barras/Barra_V1.glb">
+                    <span class="asset-index">002</span>
+                    <div class="asset-media">
+                        <img src="img/Barra_V1_screenshot.png" alt="Barra Principal V1" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">BARRA</span>
+                        <h3>Barra Principal V1</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Barras/Barra_V2.glb">
+                    <span class="asset-index">003</span>
+                    <div class="asset-media">
+                        <img src="img/Barra_V2_screenshot.png" alt="Barra Principal V2" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">BARRA</span>
+                        <h3>Barra Principal V2</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V1.glb">
+                    <span class="asset-index">004</span>
+                    <div class="asset-media">
+                        <img src="img/Vitrina_Postres_V1_screenshot.png" alt="Vitrina Postres V1" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">VITRINA</span>
+                        <h3>Vitrina Postres V1</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V2.glb">
+                    <span class="asset-index">005</span>
+                    <div class="asset-media">
+                        <img src="img/Vitrina_Postres_V2_screenshot.png" alt="Vitrina Postres V2" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">VITRINA</span>
+                        <h3>Vitrina Postres V2</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <article class="tarjeta-asset" role="button" tabindex="0"
+                     data-modelo="modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V3.glb">
+                    <span class="asset-index">006</span>
+                    <div class="asset-media">
+                        <img src="img/Vitrina_Postres_V3_screenshot.png" alt="Vitrina Postres V3" loading="lazy">
+                    </div>
+                    <div class="asset-info">
+                        <span class="asset-tag">VITRINA</span>
+                        <h3>Vitrina Postres V3</h3>
+                        <span class="asset-cta">VER EN 3D <i>→</i></span>
+                    </div>
+                </article>
+                <p id="sin-resultados" class="sin-resultados" style="display:none">
+                    <span>// NO SIGNAL</span>
+                    No se encontraron assets con ese nombre.
+                </p>
+            </main>
         </div>
     </div>
 
-    <script>
-        function abrirModal(src) {
-            const modal = document.getElementById('modal-visor');
-            const contenedor = document.getElementById('contenedor-visor');
-            
-            contenedor.innerHTML = `<model-viewer src="${src}" camera-controls auto-rotate shadow-intensity="1" style="width: 100%; height: 100%; background: #000;"></model-viewer>`;
-            modal.style.display = 'block';
-        }
-        
-        document.querySelector('.cerrar-modal').onclick = () => {
-            document.getElementById('modal-visor').style.display = 'none';
-            document.getElementById('contenedor-visor').innerHTML = "";
-        };
+    <!-- ============ MODAL VISOR 3D ============ -->
+    <div id="modal-visor" class="modal" role="dialog" aria-modal="true" aria-label="Visor 3D">
+        <div class="modal__frame">
+            <div class="modal__bar">
+                <span class="modal__title" id="modal-title">ASSET_VIEWER</span>
+                <button class="cerrar-modal" aria-label="Cerrar visor">&times;</button>
+            </div>
+            <div id="contenedor-visor" class="contenido-modal">
+                <!-- El visor se inyecta dinámicamente aquí -->
+            </div>
+        </div>
+    </div>
 
-        window.onclick = (event) => {
-            if (event.target == document.getElementById('modal-visor')) {
-                document.getElementById('modal-visor').style.display = 'none';
-                document.getElementById('contenedor-visor').innerHTML = "";
-            }
-        };
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
