@@ -508,7 +508,7 @@ if (soundToggle) {
     };
     requestAnimationFrame(tick);
 })();
-onst selector = document.getElementById('category-selector');
+const selector = document.getElementById('category-selector');
 
 // Llenar el selector automáticamente
 CATEGORIAS.forEach(cat => {
@@ -516,7 +516,8 @@ CATEGORIAS.forEach(cat => {
     opt.value = cat.id;
     opt.textContent = cat.nombre.toUpperCase();
     selector.appendChild(opt);
-});
+}
+);
 
 // Escuchar cambios
 selector.addEventListener('change', (e) => {
