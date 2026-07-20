@@ -8,48 +8,54 @@
    Los campos de "specs" son editables: rellénalos con los datos reales de tu
    export (las dimensiones se calculan solas desde el modelo al abrir el visor).
    -------------------------------------------------------------------------- */
-const ASSETS = [
+const CATEGORIAS = [
+    { id: '01_BARRA', nombre: 'Barra de Servicio' },
+    { id: '02_CONSUMO', nombre: 'Zonas de Consumo' },
+    { id: '03_MAQUINARIA', nombre: 'Maquinaria y Preparación' },
+    { id: '04_VAJILLA', nombre: 'Vajilla' },
+    { id: '05_NARRATIVA', nombre: 'Narrativa Ambiental' },
+    { id: '06_FOLLAJE', nombre: 'Follaje y Elementos Locales' }
     {
         id: 'barra-auxiliar', nombre: 'Barra Auxiliar', tag: 'BARRA',
         img: 'img/Barra_Auxiliar_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barra_auxiliar/Barra_Auxiliar.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Metal', 'Peso': '119 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Metal', 'Peso': '0.12 MB' },
     },
     {
         id: 'barra-v1', nombre: 'Barra Principal V1', tag: 'BARRA',
         img: 'img/Barra_V1_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V1.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Cemento', 'Peso': '256 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Cemento', 'Peso': '0.25 MB' },
     },
     {
         id: 'barra-v2', nombre: 'Barra Principal V2', tag: 'BARRA',
         img: 'img/Barra_V2_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V2.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Cemento', 'Peso': '132 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Cemento', 'Peso': '0.13 MB' },
     },
     {
         id: 'vitrina-v1', nombre: 'Vitrina Postres V1', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V1_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V1.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '122 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.12 MB' },
     },
     {
         id: 'vitrina-v2', nombre: 'Vitrina Postres V2', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V2_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V2.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '113 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' },
     },
     {
         id: 'vitrina-v3', nombre: 'Vitrina Postres V3', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V3_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V3.glb',
-        specs: { 'Polígonos': '312', 'Materiales': 'Metal', 'Peso': '112 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' },
     },
     {
         id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
         img: 'img/Cajero_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Cajero.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plastico', 'Peso': '278 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.27 MB' },
     },
     {
         id: 'computadora', nombre: 'Computadora', tag: 'PUNTO_PAGO',
@@ -61,13 +67,13 @@ const ASSETS = [
         id: 'punto-venta', nombre: 'Punto de Venta', tag: 'PUNTO_PAGO',
         img: 'img/Punto_Venta_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Punto_Venta.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plastico', 'Peso': '117 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.11 MB' },
     },
     {
         id: 'teclado', nombre: 'Teclado', tag: 'PUNTO_PAGO',
         img: 'img/Teclado_screenshot.png',
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Teclado.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plastico', 'Peso': '144 KB' },
+        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.14 MB' },
     },
     // --- NUEVA CATEGORÍA: ZONA_SERVICIO ---
 {
