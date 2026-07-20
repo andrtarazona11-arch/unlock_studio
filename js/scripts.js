@@ -45,6 +45,18 @@ const ASSETS = [
         glb: 'modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V3.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
+    {
+        id: 'Cajero', nombre: 'Cajero', tag: 'Punto_Pago',
+        img: 'Cajero_screenshot.png',
+        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Cajero,glb',
+        specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
+    },
+    {
+        id: 'Computadora', nombre: 'Computadora', tag: 'Punto_Pago',
+        img: 'Computadora_screenshot.png',
+        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Computadora,glb',
+        specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
+    },
 ];
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
