@@ -8,6 +8,7 @@
    Los campos de "specs" son editables: rellénalos con los datos reales de tu
    export (las dimensiones se calculan solas desde el modelo al abrir el visor).
    -------------------------------------------------------------------------- */
+
 const CATEGORIAS = [
     { id: '01_BARRA', nombre: 'Barra de Servicio' },
     { id: '02_CONSUMO', nombre: 'Zonas de Consumo' },
@@ -15,130 +16,32 @@ const CATEGORIAS = [
     { id: '04_VAJILLA', nombre: 'Vajilla' },
     { id: '05_NARRATIVA', nombre: 'Narrativa Ambiental' },
     { id: '06_FOLLAJE', nombre: 'Follaje y Elementos Locales' }
-]; // <-- ESTO ES LO QUE TE FALTABA
+];
 
 const ASSETS = [
-    {
-        id: 'barra-auxiliar', nombre: 'Barra Auxiliar', tag: 'BARRA',
-        img: 'img/Barra_Auxiliar_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barra_auxiliar/Barra_Auxiliar.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Metal', 'Peso': '0.12 MB' },
-    },
-    {
-        id: 'barra-v1', nombre: 'Barra Principal V1', tag: 'BARRA',
-        img: 'img/Barra_V1_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V1.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Cemento', 'Peso': '0.25 MB' },
-    },
-    {
-        id: 'barra-v2', nombre: 'Barra Principal V2', tag: 'BARRA',
-        img: 'img/Barra_V2_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V2.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Madera, Cemento', 'Peso': '0.13 MB' },
-    },
-    {
-        id: 'vitrina-v1', nombre: 'Vitrina Postres V1', tag: 'VITRINA',
-        img: 'img/Vitrina_Postres_V1_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V1.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.12 MB' },
-    },
-    {
-        id: 'vitrina-v2', nombre: 'Vitrina Postres V2', tag: 'VITRINA',
-        img: 'img/Vitrina_Postres_V2_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V2.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' },
-    },
-    {
-        id: 'vitrina-v3', nombre: 'Vitrina Postres V3', tag: 'VITRINA',
-        img: 'img/Vitrina_Postres_V3_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V3.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' },
-    },
-    {
-        id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
-        img: 'img/Cajero_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Cajero.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.27 MB' },
-    },
-    {
-        id: 'computadora', nombre: 'Computadora', tag: 'PUNTO_PAGO',
-        img: 'img/Computadora_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Computadora.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '75.8 MB' },
-    },
-    {
-        id: 'punto-venta', nombre: 'Punto de Venta', tag: 'PUNTO_PAGO',
-        img: 'img/Punto_Venta_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Punto_Venta.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.11 MB' },
-    },
-    {
-        id: 'teclado', nombre: 'Teclado', tag: 'PUNTO_PAGO',
-        img: 'img/Teclado_screenshot.png',
-        glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Teclado.glb',
-        specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.14 MB' },
-    },
-    // --- NUEVA CATEGORÍA: ZONA_SERVICIO ---
-{
-    id: 'barra-larga', nombre: 'Barra Larga', tag: 'ZONA_SERVICIO',
-    img: 'img/Barra_Larga_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Larga.glb',
-    specs: { 'Polígonos': '3278', 'Materiales': 'Madera, Metal', 'Peso': '4.4 MB' },
-},
-{
-    id: 'barra-comunal', nombre: 'Mesa Comunal', tag: 'ZONA_SERVICIO',
-    img: 'img/Barra_Comunal_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Comunal.glb',
-    specs: { 'Polígonos': '568', 'Materiales': 'Madera tratada', 'Peso': '10.6 MB' },
-},
-{
-    id: 'sofa-exterior', nombre: 'Sofa Exterior', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Sofa_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Sofa.glb',
-    specs: { 'Polígonos': '2668', 'Materiales': 'Tapizado, Metal', 'Peso': '13.1 MB' },
-},
-{
-    id: 'banco-decorativo', nombre: 'Banco Decorativo', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_BancoDecorativo_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_BancoDecorativo.glb',
-    specs: { 'Polígonos': '2896', 'Materiales': 'Madera, Acero', 'Peso': '2.0 MB' },
-},
-{
-    id: 'mesa-centro', nombre: 'Mesa Centro', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Mesa_Centro_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_Centro.glb',
-    specs: { 'Polígonos': '568', 'Materiales': 'Vidrio, Metal', 'Peso': '5.5 MB' },
-},
-{
-    id: 'mesa-v1', nombre: 'Mesa V1', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Mesa_V1_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V1.glb',
-    specs: { 'Polígonos': '712', 'Materiales': 'Metal, Pintura', 'Peso': '1.0 MB' },
-},
-{
-    id: 'mesa-v2', nombre: 'Mesa V2', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Mesa_V2_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V2.glb',
-    specs: { 'Polígonos': '734', 'Materiales': 'Metal, Pintura', 'Peso': '3.3 MB' },
-},
-{
-    id: 'mesa-v3', nombre: 'Mesa V3', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Mesa_V3_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V3.glb',
-    specs: { 'Polígonos': '3120', 'Materiales': 'Madera, Metal', 'Peso': '4.3 MB' },
-},
-{
-    id: 'silla-v1', nombre: 'Silla V1', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Silla_V1_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V1.glb',
-    specs: { 'Polígonos': '2976', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.9 MB' },
-},
-{
-    id: 'silla-v3', nombre: 'Silla V3', tag: 'ZONA_SERVICIO',
-    img: 'img/Ext_Silla_V3_screenshot.png',
-    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V3.glb',
-    specs: { 'Polígonos': '394', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.0 MB' },
-},
+    // --- 01_BARRA ---
+    { id: 'barra-auxiliar', nombre: 'Barra Auxiliar', tag: '01_BARRA', img: 'img/Barra_Auxiliar_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barra_auxiliar/Barra_Auxiliar.glb', specs: { 'Polígonos': '—', 'Materiales': 'Madera, Metal', 'Peso': '0.12 MB' } },
+    { id: 'barra-v1', nombre: 'Barra Principal V1', tag: '01_BARRA', img: 'img/Barra_V1_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V1.glb', specs: { 'Polígonos': '—', 'Materiales': 'Cemento', 'Peso': '0.25 MB' } },
+    { id: 'barra-v2', nombre: 'Barra Principal V2', tag: '01_BARRA', img: 'img/Barra_V2_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/barras/Barra_V2.glb', specs: { 'Polígonos': '—', 'Materiales': 'Madera, Cemento', 'Peso': '0.13 MB' } },
+    { id: 'vitrina-v1', nombre: 'Vitrina Postres V1', tag: '01_BARRA', img: 'img/Vitrina_Postres_V1_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V1.glb', specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.12 MB' } },
+    { id: 'vitrina-v2', nombre: 'Vitrina Postres V2', tag: '01_BARRA', img: 'img/Vitrina_Postres_V2_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V2.glb', specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' } },
+    { id: 'vitrina-v3', nombre: 'Vitrina Postres V3', tag: '01_BARRA', img: 'img/Vitrina_Postres_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V3.glb', specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '0.11 MB' } },
+    { id: 'cajero', nombre: 'Cajero', tag: '01_BARRA', img: 'img/Cajero_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Cajero.glb', specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.27 MB' } },
+    { id: 'computadora', nombre: 'Computadora', tag: '01_BARRA', img: 'img/Computadora_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Computadora.glb', specs: { 'Polígonos': '—', 'Materiales': 'Metal', 'Peso': '75.8 MB' } },
+    { id: 'punto-venta', nombre: 'Punto de Venta', tag: '01_BARRA', img: 'img/Punto_Venta_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Punto_Venta.glb', specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.11 MB' } },
+    { id: 'teclado', nombre: 'Teclado', tag: '01_BARRA', img: 'img/Teclado_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Teclado.glb', specs: { 'Polígonos': '—', 'Materiales': 'Plástico', 'Peso': '0.14 MB' } },
+
+    // --- 02_CONSUMO ---
+    { id: 'barra-larga', nombre: 'Barra Larga', tag: '02_CONSUMO', img: 'img/Barra_Larga_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Larga.glb', specs: { 'Polígonos': '3278', 'Materiales': 'Madera, Metal', 'Peso': '4.4 MB' } },
+    { id: 'barra-comunal', nombre: 'Mesa Comunal', tag: '02_CONSUMO', img: 'img/Barra_Comunal_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Comunal.glb', specs: { 'Polígonos': '568', 'Materiales': 'Madera tratada', 'Peso': '10.6 MB' } },
+    { id: 'sofa-exterior', nombre: 'Sofa Exterior', tag: '02_CONSUMO', img: 'img/Ext_Sofa_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Sofa.glb', specs: { 'Polígonos': '2668', 'Materiales': 'Tapizado, Metal', 'Peso': '13.1 MB' } },
+    { id: 'banco-decorativo', nombre: 'Banco Decorativo', tag: '02_CONSUMO', img: 'img/Ext_BancoDecorativo_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_BancoDecorativo.glb', specs: { 'Polígonos': '2896', 'Materiales': 'Madera, Acero', 'Peso': '2.0 MB' } },
+    { id: 'mesa-centro', nombre: 'Mesa Centro', tag: '02_CONSUMO', img: 'img/Ext_Mesa_Centro_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_Centro.glb', specs: { 'Polígonos': '568', 'Materiales': 'Vidrio, Metal', 'Peso': '5.5 MB' } },
+    { id: 'mesa-v1', nombre: 'Mesa V1', tag: '02_CONSUMO', img: 'img/Ext_Mesa_V1_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V1.glb', specs: { 'Polígonos': '712', 'Materiales': 'Metal, Pintura', 'Peso': '1.0 MB' } },
+    { id: 'mesa-v2', nombre: 'Mesa V2', tag: '02_CONSUMO', img: 'img/Ext_Mesa_V2_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V2.glb', specs: { 'Polígonos': '734', 'Materiales': 'Metal, Pintura', 'Peso': '3.3 MB' } },
+    { id: 'mesa-v3', nombre: 'Mesa V3', tag: '02_CONSUMO', img: 'img/Ext_Mesa_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V3.glb', specs: { 'Polígonos': '3120', 'Materiales': 'Madera, Metal', 'Peso': '4.3 MB' } },
+    { id: 'silla-v1', nombre: 'Silla V1', tag: '02_CONSUMO', img: 'img/Ext_Silla_V1_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V1.glb', specs: { 'Polígonos': '2976', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.9 MB' } },
+    { id: 'silla-v3', nombre: 'Silla V3', tag: '02_CONSUMO', img: 'img/Ext_Silla_V3_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V3.glb', specs: { 'Polígonos': '394', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.0 MB' } }
 ];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -523,3 +426,51 @@ CATEGORIAS.forEach(cat => {
 selector.addEventListener('change', (e) => {
     filterAssets(e.target.value);
 });
+/* ==========================================================================
+   Sistema de Filtrado por Categorías
+   ========================================================================== */
+
+function filterAssets(category) {
+    // 1. Filtrar las tarjetas
+    tarjetas.forEach(t => {
+        const asset = ASSETS.find(a => a.id === t.dataset.id);
+        
+        // Si la categoría es TODOS, mostramos todo, sino comparamos el tag
+        if (category === 'TODOS') {
+            t.style.display = ''; 
+        } else {
+            // Usamos includes por si el tag tiene nombres compuestos
+            t.style.display = (asset.tag === category) ? '' : 'none';
+        }
+    });
+
+    // 2. Actualizar el título en el header
+    const tituloHeader = document.querySelector('.topbar__crumb .hl');
+    const catEncontrada = CATEGORIAS.find(c => c.id === category);
+    if (tituloHeader) {
+        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
+    }
+}
+
+// Inicialización del selector
+const selector = document.getElementById('category-selector');
+if (selector) {
+    // Opción inicial de "TODOS"
+    const optTodos = document.createElement('option');
+    optTodos.value = 'TODOS';
+    optTodos.textContent = 'TODAS LAS CATEGORÍAS';
+    selector.appendChild(optTodos);
+
+    // Llenar con el resto de categorías
+    CATEGORIAS.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat.id;
+        opt.textContent = cat.nombre.toUpperCase();
+        selector.appendChild(opt);
+    });
+
+    // Escuchar cambios
+    selector.addEventListener('change', (e) => {
+        filterAssets(e.target.value);
+    });
+}

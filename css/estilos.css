@@ -467,7 +467,7 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
 .hero__title span {
     color: transparent;
     -webkit-text-stroke: 2px var(--lime);
-    text-stroke: 2px var(--lime);
+    -webkit-text-stroke: 2px var(--lime);
     filter: drop-shadow(0 0 18px rgba(180, 227, 34, 0.35));
 }
 .hero__sub {
@@ -999,4 +999,21 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.1s !important; }
     .fx-grain, .fx-mesh { animation: none; }
     .tarjeta-asset { transform: none !important; }
+}
+.category-selector {
+    background: transparent;
+    border: none;
+    color: var(--color-primario); /* Tu color verde */
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.category-selector option {
+    background-color: #111;
+    color: #fff;
+
 }
