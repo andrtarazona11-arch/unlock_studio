@@ -12,53 +12,52 @@ const ASSETS = [
     {
         id: 'barra-auxiliar', nombre: 'Barra Auxiliar', tag: 'BARRA',
         img: 'img/Barra_Auxiliar_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/barra_auxiliar/Barra_Auxiliar.glb',
+        glb: 'modelos_barra_servicio/barra_auxiliar/Barra_Auxiliar.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'barra-v1', nombre: 'Barra Principal V1', tag: 'BARRA',
         img: 'img/Barra_V1_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/barras/Barra_V1.glb',
+        glb: 'modelos_barra_servicio/barras/Barra_V1.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'barra-v2', nombre: 'Barra Principal V2', tag: 'BARRA',
         img: 'img/Barra_V2_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/barras/Barra_V2.glb',
+        glb: 'modelos_barra_servicio/barras/Barra_V2.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'vitrina-v1', nombre: 'Vitrina Postres V1', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V1_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/vitrina_postres/Vitrina_Postres_V1.glb',
+        glb: 'modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V1.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'vitrina-v2', nombre: 'Vitrina Postres V2', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V2_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/vitrina_postres/Vitrina_Postres_V2.glb',
+        glb: 'modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V2.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'vitrina-v3', nombre: 'Vitrina Postres V3', tag: 'VITRINA',
         img: 'img/Vitrina_Postres_V3_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/vitrina_postres/Vitrina_Postres_V3.glb',
+        glb: 'modelos_barra_servicio/vitrina_postres/Vitrina_Postres_V3.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
         img: 'img/Cajero_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/punto_pago/Cajero.glb',
-        specs: { 'Polígonos': '250', 'Materiales': '—', 'Peso': '—' },
+        glb: 'modelos_barra_servicio/punto_pago/Cajero.glb',
+        specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'computadora', nombre: 'Computadora', tag: 'PUNTO_PAGO',
         img: 'img/Computadora_screenshot.png',
-        glb: 'modelos/01_barra_de_servicio/punto_pago/Computadora.glb',
+        glb: 'modelos_barra_servicio/punto_pago/Computadora.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
 ];
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
