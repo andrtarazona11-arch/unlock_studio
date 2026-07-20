@@ -462,21 +462,41 @@ function filterAssets(category) {
    ========================================================================== */
 
 function filterAssets(category) {
+    // 1. Filtrar las tarjetas
     tarjetas.forEach(t => {
         const asset = ASSETS.find(a => a.id === t.dataset.id);
         if (category === 'TODOS') {
             t.style.display = ''; 
         } else {
-            t.style.display = (asset.tag === category) ? '' : 'none';
+            t.style.display = (asset && asset.tag === category) ? '' : 'none';
         }
     });
 
+    // 2. NUEVO: Buscar y actualizar el destacado
+    let nuevoDestacado;
+    if (category === 'TODOS') {
+        nuevoDestacado = ASSETS[0]; // Vuelve al primero global
+    } else {
+        nuevoDestacado = ASSETS.find(a => a.tag === category);
+    }
+    
+    if (nuevoDestacado) {
+        actualizarHero(nuevoDestacado);
+    }
+
+    // 3. Actualizar el título
     const tituloHeader = document.querySelector('.topbar__crumb .hl');
     const catEncontrada = CATEGORIAS.find(c => c.id === category);
     if (tituloHeader) {
         tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
     }
 }
+
+    const tituloHeader = document.querySelector('.topbar__crumb .hl');
+    const catEncontrada = CATEGORIAS.find(c => c.id === category);
+    if (tituloHeader) {
+        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
+    }
 
 selector = document.getElementById('category-selector');
 if (selector) {
