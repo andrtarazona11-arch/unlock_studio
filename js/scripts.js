@@ -124,6 +124,7 @@ function engancharInteracciones(card, asset) {
     // --- Preview 3D vivo (solo desktop) ---
     if (finePointer) {
         card.addEventListener('mouseenter', () => {
+            if (liveViewer) return; // ya hay uno, evita duplicados
             previewTimer = setTimeout(() => {
                 liveViewer = document.createElement('model-viewer');
                 liveViewer.className = 'asset-live';
@@ -136,11 +137,15 @@ function engancharInteracciones(card, asset) {
                 liveViewer.setAttribute('poster', asset.img);
                 liveViewer.setAttribute('aria-hidden', 'true');
                 media.appendChild(liveViewer);
-                requestAnimationFrame(() => liveViewer.classList.add('visible'));
+                requestAnimationFrame(() => {
+                    liveViewer.classList.add('visible');
+                    media.classList.add('preview-on'); // oculta la imagen de fondo
+                });
             }, 170);
         });
         card.addEventListener('mouseleave', () => {
             clearTimeout(previewTimer);
+            media.classList.remove('preview-on');
             if (liveViewer) { liveViewer.remove(); liveViewer = null; }
         });
     }
