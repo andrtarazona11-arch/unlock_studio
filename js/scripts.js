@@ -69,6 +69,67 @@ const ASSETS = [
         glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Teclado.glb',
         specs: { 'Polígonos': '—', 'Materiales': 'Plastico', 'Peso': '144 KB' },
     },
+    // --- NUEVA CATEGORÍA: ZONA_SERVICIO ---
+{
+    id: 'barra-larga', nombre: 'Barra Larga', tag: 'ZONA_SERVICIO',
+    img: 'img/Barra_Larga_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Larga.glb',
+    specs: { 'Polígonos': '3278', 'Materiales': 'Madera, Metal', 'Peso': '4.4 MB' },
+},
+{
+    id: 'barra-comunal', nombre: 'Mesa Comunal', tag: 'ZONA_SERVICIO',
+    img: 'img/Barra_Comunal_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Barra_Comunal.glb',
+    specs: { 'Polígonos': '568', 'Materiales': 'Madera tratada', 'Peso': '10.6 MB' },
+},
+{
+    id: 'sofa-exterior', nombre: 'Sofa Exterior', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Sofa_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Sofa.glb',
+    specs: { 'Polígonos': '2668', 'Materiales': 'Tapizado, Metal', 'Peso': '13.1 MB' },
+},
+{
+    id: 'banco-decorativo', nombre: 'Banco Decorativo', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_BancoDecorativo_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_BancoDecorativo.glb',
+    specs: { 'Polígonos': '2896', 'Materiales': 'Madera, Acero', 'Peso': '2.0 MB' },
+},
+{
+    id: 'mesa-centro', nombre: 'Mesa Centro', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Mesa_Centro_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_Centro.glb',
+    specs: { 'Polígonos': '568', 'Materiales': 'Vidrio, Metal', 'Peso': '5.5 MB' },
+},
+{
+    id: 'mesa-v1', nombre: 'Mesa V1', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Mesa_V1_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V1.glb',
+    specs: { 'Polígonos': '712', 'Materiales': 'Metal, Pintura', 'Peso': '1.0 MB' },
+},
+{
+    id: 'mesa-v2', nombre: 'Mesa V2', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Mesa_V2_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V2.glb',
+    specs: { 'Polígonos': '734', 'Materiales': 'Metal, Pintura', 'Peso': '3.3 MB' },
+},
+{
+    id: 'mesa-v3', nombre: 'Mesa V3', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Mesa_V3_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Mesa_V3.glb',
+    specs: { 'Polígonos': '3120', 'Materiales': 'Madera, Metal', 'Peso': '4.3 MB' },
+},
+{
+    id: 'silla-v1', nombre: 'Silla V1', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Silla_V1_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V1.glb',
+    specs: { 'Polígonos': '2976', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.9 MB' },
+},
+{
+    id: 'silla-v3', nombre: 'Silla V3', tag: 'ZONA_SERVICIO',
+    img: 'img/Ext_Silla_V3_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_zonas_de_servicio/Ext_Silla_V3.glb',
+    specs: { 'Polígonos': '394', 'Materiales': 'Polipropileno, Metal', 'Peso': '4.0 MB' },
+},
 ];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
