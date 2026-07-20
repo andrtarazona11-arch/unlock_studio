@@ -508,3 +508,17 @@ if (soundToggle) {
     };
     requestAnimationFrame(tick);
 })();
+onst selector = document.getElementById('category-selector');
+
+// Llenar el selector automáticamente
+CATEGORIAS.forEach(cat => {
+    const opt = document.createElement('option');
+    opt.value = cat.id;
+    opt.textContent = cat.nombre.toUpperCase();
+    selector.appendChild(opt);
+});
+
+// Escuchar cambios
+selector.addEventListener('change', (e) => {
+    filterAssets(e.target.value);
+});
