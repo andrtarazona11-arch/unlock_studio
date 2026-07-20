@@ -1,0 +1,36 @@
+:root {
+    --bg-main: #0b0c10;
+    --card-bg: #13141c;
+    --sidebar-bg: #161720;
+    --accent-blue: #6366f1; 
+    --text-title: #ffffff;
+    --text-muted: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: var(--bg-main); color: var(--text-muted); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+.contenedor-principal { display: grid; grid-template-columns: 240px 1fr; gap: 30px; padding: 20px; }
+
+/* Sidebar */
+.sidebar { background: var(--sidebar-bg); border-radius: 12px; padding: 25px; height: calc(100vh - 40px); display: flex; flex-direction: column; }
+
+.logo-area { width: 198.6px; height: 94.89px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
+.logo-area img { width: 193.97px; height: 74.19px; object-fit: contain; filter: brightness(1.2) contrast(1.1); }
+
+.categorias-area { padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+h3 { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+.categoria summary { color: var(--text-title); font-size: 0.95rem; font-weight: 500; cursor: pointer; list-style: none; margin-bottom: 10px; }
+.categoria ul { list-style: none; padding-left: 0; }
+.categoria ul li a { color: var(--text-muted); text-decoration: none; display: block; padding: 6px 0; font-size: 0.9rem; transition: 0.2s; }
+.categoria ul li a:hover { color: var(--text-title); padding-left: 5px; }
+
+.contenedor-catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.tarjeta-asset { background: var(--card-bg); border-radius: 16px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; cursor: pointer; }
+.tarjeta-asset:hover { border-color: var(--accent-blue); transform: translateY(-4px); }
+.img-catalogo { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; }
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
+.contenido-modal { width: 80%; height: 80vh; margin: 5% auto; border: 1px solid var(--accent-blue); border-radius: 12px; overflow: hidden; background: #000; }
+.cerrar-modal { position: absolute; top: 20px; right: 30px; font-size: 30px; color: white; cursor: pointer; }

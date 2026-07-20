@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Studio | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <img src="img/logo_unlock.png" alt="Unlock Studio">
+            </div>
+
+            <div class="categorias-area">
+                <h3>Categorías</h3>
+                <details class="categoria" open>
+                    <summary>Barra de Servicio</summary>
+                    <ul>
+                        <li><a href="#">Barra Auxiliar</a></li>
+                        <li><a href="#">Barra Principal V1</a></li>
+                        <li><a href="#">Barra Principal V2</a></li>
+                        <li><a href="#">Vitrina Postres V1</a></li>
+                        <li><a href="#">Vitrina Postres V2</a></li>
+                        <li><a href="#">Vitrina Postres V3</a></li>
+                    </ul>
+                </details>
+            </div>
+        </aside>
+
+        <main class="contenedor-catalogo">
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barra_auxiliar/Barra_Auxiliar.glb')">
+                <img src="img/Barra_Auxiliar_screenshot.png" class="img-catalogo" alt="Barra Auxiliar">
+                <h3>Barra Auxiliar</h3>
+            </div>
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barras/Barra_V1.glb')">
+                <img src="img/Barra_V1_screenshot.png" class="img-catalogo" alt="Barra Principal V1">
+                <h3>Barra Principal V1</h3>
+            </div>
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Barras/Barra_V2.glb')">
+                <img src="img/Barra_V2_screenshot.png" class="img-catalogo" alt="Barra Principal V2">
+                <h3>Barra Principal V2</h3>
+            </div>
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V1.glb')">
+                <img src="img/Vitrina_Postres_V1_screenshot.png" class="img-catalogo" alt="Vitrina Postres V1">
+                <h3>Vitrina Postres V1</h3>
+            </div>
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V2.glb')">
+                <img src="img/Vitrina_Postres_V2_screenshot.png" class="img-catalogo" alt="Vitrina Postres V2">
+                <h3>Vitrina Postres V2</h3>
+            </div>
+            <div class="tarjeta-asset" onclick="abrirModal('modelos/01_Barra_de_Servicio/Vitrina_de_postres/Vitrina_Postres_V3.glb')">
+                <img src="img/Vitrina_Postres_V3_screenshot.png" class="img-catalogo" alt="Vitrina Postres V3">
+                <h3>Vitrina Postres V3</h3>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-visor" class="modal">
+        <span class="cerrar-modal">&times;</span>
+        <div id="contenedor-visor" class="contenido-modal">
+            <!-- El visor se inyecta dinámicamente aquí -->
+        </div>
+    </div>
+
+    <script>
+        function abrirModal(src) {
+            const modal = document.getElementById('modal-visor');
+            const contenedor = document.getElementById('contenedor-visor');
+            
+            contenedor.innerHTML = `<model-viewer src="${src}" camera-controls auto-rotate shadow-intensity="1" style="width: 100%; height: 100%; background: #000;"></model-viewer>`;
+            modal.style.display = 'block';
+        }
+        
+        document.querySelector('.cerrar-modal').onclick = () => {
+            document.getElementById('modal-visor').style.display = 'none';
+            document.getElementById('contenedor-visor').innerHTML = "";
+        };
+
+        window.onclick = (event) => {
+            if (event.target == document.getElementById('modal-visor')) {
+                document.getElementById('modal-visor').style.display = 'none';
+                document.getElementById('contenedor-visor').innerHTML = "";
+            }
+        };
+    </script>
+</body>
+</html>
