@@ -47,14 +47,14 @@ const ASSETS = [
     },
     {
         id: 'Cajero', nombre: 'Cajero', tag: 'Punto_Pago',
-        img: 'Cajero_screenshot.png',
-        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Cajero,glb',
+        img: 'img/Cajero_screenshot.png',
+        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Cajero.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
-        id: 'Computadora', nombre: 'Computadora', tag: 'Punto_Pago',
-        img: 'Computadora_screenshot.png',
-        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Computadora,glb',
+        id: 'Computadora', nombre: 'Computadora', tag: 'p',
+        img: 'img/Computadora_screenshot.png',
+        glb: 'modelos/01_Barra_de_Servicio/Punto_Pago/Computadora.glb',
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
 ];
