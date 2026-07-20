@@ -471,6 +471,7 @@ function filterAssets(category) {
         tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
     }
 }
+
 const selector = document.getElementById('category-selector');
 if (selector) {
     const optTodos = document.createElement('option');
