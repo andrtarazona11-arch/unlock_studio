@@ -451,17 +451,33 @@ function filterAssets(category) {
         tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
     }
 }
+/* ==========================================================================
+   Sistema de Filtrado por Categorías
+   ========================================================================== */
 
-// Inicialización del selector
+function filterAssets(category) {
+    tarjetas.forEach(t => {
+        const asset = ASSETS.find(a => a.id === t.dataset.id);
+        if (category === 'TODOS') {
+            t.style.display = ''; 
+        } else {
+            t.style.display = (asset.tag === category) ? '' : 'none';
+        }
+    });
+
+    const tituloHeader = document.querySelector('.topbar__crumb .hl');
+    const catEncontrada = CATEGORIAS.find(c => c.id === category);
+    if (tituloHeader) {
+        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
+    }
+}
 const selector = document.getElementById('category-selector');
 if (selector) {
-    // Opción inicial de "TODOS"
     const optTodos = document.createElement('option');
     optTodos.value = 'TODOS';
     optTodos.textContent = 'TODAS LAS CATEGORÍAS';
     selector.appendChild(optTodos);
 
-    // Llenar con el resto de categorías
     CATEGORIAS.forEach(cat => {
         const opt = document.createElement('option');
         opt.value = cat.id;
@@ -469,7 +485,6 @@ if (selector) {
         selector.appendChild(opt);
     });
 
-    // Escuchar cambios
     selector.addEventListener('change', (e) => {
         filterAssets(e.target.value);
     });
