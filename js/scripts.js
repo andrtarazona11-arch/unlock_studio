@@ -15,6 +15,9 @@ const CATEGORIAS = [
     { id: '04_VAJILLA', nombre: 'Vajilla' },
     { id: '05_NARRATIVA', nombre: 'Narrativa Ambiental' },
     { id: '06_FOLLAJE', nombre: 'Follaje y Elementos Locales' }
+]; // <-- ESTO ES LO QUE TE FALTABA
+
+const ASSETS = [
     {
         id: 'barra-auxiliar', nombre: 'Barra Auxiliar', tag: 'BARRA',
         img: 'img/Barra_Auxiliar_screenshot.png',
