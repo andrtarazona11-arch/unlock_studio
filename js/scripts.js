@@ -49,7 +49,7 @@ const ASSETS = [
         id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
         img: 'img/Cajero_screenshot.png',
         glb: 'modelos/01_barra_de_servicio/punto_pago/Cajero.glb',
-        specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
+        specs: { 'Polígonos': '250', 'Materiales': '—', 'Peso': '—' },
     },
     {
         id: 'computadora', nombre: 'Computadora', tag: 'PUNTO_PAGO',
