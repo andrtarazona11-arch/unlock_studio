@@ -60,6 +60,8 @@ const ASSETS = [
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const tagCorto = (tag) => String(tag).replace(/^\d+_/, '');
+const nombreCategoria = (tag) => (CATEGORIAS.find((c) => c.id === tag)?.nombre) || tag;
 
 /* ==========================================================================
    Render del catálogo
@@ -81,7 +83,7 @@ function crearTarjeta(asset, i) {
             <img src="${esc(asset.img)}" alt="${esc(asset.nombre)}" loading="lazy">
         </div>
         <div class="asset-info">
-            <span class="asset-tag">${esc(asset.tag)}</span>
+            <span class="asset-tag">${esc(tagCorto(asset.tag))}</span>
             <h3>${esc(asset.nombre)}</h3>
             <span class="asset-cta">VER EN 3D <i>→</i></span>
         </div>`;
@@ -113,7 +115,7 @@ function actualizarHero(asset) {
         heroModel.src = asset.glb;
     }
     if (heroName) heroName.textContent = asset.nombre;
-    if (heroTag) heroTag.textContent = asset.tag;
+    if (heroTag) heroTag.textContent = tagCorto(asset.tag);
     
     // Si el botón de inspección tiene un listener previo, hay que reemplazarlo, 
     // pero para empezar, simplemente actualizamos la referencia:
@@ -137,8 +139,10 @@ function engancharInteracciones(card, asset) {
     let previewTimer = null;
     let liveViewer = null;
 
-    // --- Preview 3D vivo (solo desktop) ---
-    if (finePointer) {
+    // --- Preview 3D vivo (solo desktop y modelos ligeros) ---
+    const pesoMB = parseFloat(asset.specs?.Peso) || 0;
+    const PREVIEW_MAX_MB = 12; // modelos más pesados solo se ven al abrir el inspector
+    if (finePointer && pesoMB <= PREVIEW_MAX_MB) {
         card.addEventListener('mouseenter', () => {
             if (liveViewer) return; // ya hay uno, evita duplicados
             previewTimer = setTimeout(() => {
@@ -210,7 +214,7 @@ const LUCES = [
 function renderMeta(asset, dims) {
     const filas = [
         ['ID', asset.id],
-        ['Categoría', asset.tag],
+        ['Categoría', nombreCategoria(asset.tag)],
         ['Formato', 'GLB / glTF'],
         ['Dimensiones', dims || 'Calculando…'],
         ['Polígonos', asset.specs['Polígonos']],
@@ -350,16 +354,7 @@ document.addEventListener('keydown', (e) => {
    ========================================================================== */
 const buscador = document.getElementById('buscador');
 if (buscador) {
-    buscador.addEventListener('input', () => {
-        const q = buscador.value.trim().toLowerCase();
-        let visibles = 0;
-        tarjetas.forEach((t) => {
-            const coincide = t.dataset.nombre.includes(q);
-            t.style.display = coincide ? '' : 'none';
-            if (coincide) visibles++;
-        });
-        sinResultados.style.display = visibles === 0 ? 'block' : 'none';
-    });
+    buscador.addEventListener('input', aplicarFiltros);
 }
 
 /* ==========================================================================
@@ -442,91 +437,29 @@ CATEGORIAS.forEach(cat => {
 }
 );
 
-// Escuchar cambios
+// Estado del filtro y aplicación combinada (categoría + búsqueda)
+let categoriaActual = 'TODOS';
+
 selector.addEventListener('change', (e) => {
-    filterAssets(e.target.value);
+    sfx.click();
+    categoriaActual = e.target.value;
+    const destacado = categoriaActual === 'TODOS'
+        ? ASSETS[0]
+        : ASSETS.find((a) => a.tag === categoriaActual);
+    if (destacado) actualizarHero(destacado);
+    aplicarFiltros();
 });
-/* ==========================================================================
-   Sistema de Filtrado por Categorías
-   ========================================================================== */
 
-function filterAssets(category) {
-    // 1. Filtrar las tarjetas
-    tarjetas.forEach(t => {
-        const asset = ASSETS.find(a => a.id === t.dataset.id);
-        
-        // Si la categoría es TODOS, mostramos todo, sino comparamos el tag
-        if (category === 'TODOS') {
-            t.style.display = ''; 
-        } else {
-            // Usamos includes por si el tag tiene nombres compuestos
-            t.style.display = (asset.tag === category) ? '' : 'none';
-        }
+function aplicarFiltros() {
+    const q = (buscador?.value || '').trim().toLowerCase();
+    let visibles = 0;
+    tarjetas.forEach((t) => {
+        const asset = ASSETS.find((a) => a.id === t.dataset.id);
+        const okCat = categoriaActual === 'TODOS' || (asset && asset.tag === categoriaActual);
+        const okQ = !q || t.dataset.nombre.includes(q);
+        const visible = okCat && okQ;
+        t.style.display = visible ? '' : 'none';
+        if (visible) visibles++;
     });
-
-    // 2. Actualizar el título en el header
-    const tituloHeader = document.querySelector('.topbar__crumb .hl');
-    const catEncontrada = CATEGORIAS.find(c => c.id === category);
-    if (tituloHeader) {
-        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
-    }
-}
-/* ==========================================================================
-   Sistema de Filtrado por Categorías
-   ========================================================================== */
-
-function filterAssets(category) {
-    // 1. Filtrar las tarjetas
-    tarjetas.forEach(t => {
-        const asset = ASSETS.find(a => a.id === t.dataset.id);
-        if (category === 'TODOS') {
-            t.style.display = ''; 
-        } else {
-            t.style.display = (asset && asset.tag === category) ? '' : 'none';
-        }
-    });
-
-    // 2. NUEVO: Buscar y actualizar el destacado
-    let nuevoDestacado;
-    if (category === 'TODOS') {
-        nuevoDestacado = ASSETS[0]; // Vuelve al primero global
-    } else {
-        nuevoDestacado = ASSETS.find(a => a.tag === category);
-    }
-    
-    if (nuevoDestacado) {
-        actualizarHero(nuevoDestacado);
-    }
-
-    // 3. Actualizar el título
-    const tituloHeader = document.querySelector('.topbar__crumb .hl');
-    const catEncontrada = CATEGORIAS.find(c => c.id === category);
-    if (tituloHeader) {
-        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
-    }
-}
-
-    const tituloHeader = document.querySelector('.topbar__crumb .hl');
-    const catEncontrada = CATEGORIAS.find(c => c.id === category);
-    if (tituloHeader) {
-        tituloHeader.innerText = catEncontrada ? catEncontrada.nombre.toUpperCase() : 'TODAS LAS CATEGORÍAS';
-    }
-
-selector = document.getElementById('category-selector');
-if (selector) {
-    const optTodos = document.createElement('option');
-    optTodos.value = 'TODOS';
-    optTodos.textContent = 'TODAS LAS CATEGORÍAS';
-    selector.appendChild(optTodos);
-
-    CATEGORIAS.forEach(cat => {
-        const opt = document.createElement('option');
-        opt.value = cat.id;
-        opt.textContent = cat.nombre.toUpperCase();
-        selector.appendChild(opt);
-    });
-
-    selector.addEventListener('change', (e) => {
-        filterAssets(e.target.value);
-    });
+    sinResultados.style.display = visibles === 0 ? 'block' : 'none';
 }

@@ -1001,19 +1001,33 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     .tarjeta-asset { transform: none !important; }
 }
 .category-selector {
-    background: transparent;
-    border: none;
-    color: var(--color-primario); /* Tu color verde */
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.2rem;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--ink-800);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b4e322' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--lime);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
     font-weight: 700;
-    cursor: pointer;
-    outline: none;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    padding: 8px 34px 8px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
-
+.category-selector:hover { border-color: var(--line-lime); }
+.category-selector:focus {
+    outline: none;
+    border-color: var(--lime);
+    box-shadow: 0 0 0 3px var(--lime-soft);
+}
 .category-selector option {
-    background-color: #111;
-    color: #fff;
-
+    background-color: var(--ink-800);
+    color: var(--text-hi);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: normal;
 }
