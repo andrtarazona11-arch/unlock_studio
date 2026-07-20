@@ -41,12 +41,14 @@
                 <div class="topbar__left">
                     <div class="logo-area">
                         <img src="img/logo_unlock.png" alt="Unlock Studio">
-                    </div>
                     <div class="topbar__crumb">
-                        <span>ASSET_LIBRARY</span>
-                        <span class="sep">/</span>
-                        <span class="hl">BARRA_DE_SERVICIO</span>
-                    </div>
+    <span>ASSET_LIBRARY</span>
+    <span class="sep">/</span>
+    <select id="category-selector" class="category-selector">
+        <option value="TODOS">TODAS LAS CATEGORÍAS</option>
+        <!-- Las opciones se generarán por JS -->
+    </select>
+</div>
                 </div>
                 <div class="topbar__right">
                     <button id="sound-toggle" class="sound-toggle" aria-pressed="false" aria-label="Activar sonido" title="Sonido">
