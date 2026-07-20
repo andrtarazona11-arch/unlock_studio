@@ -46,11 +46,11 @@ const ASSETS = [
         specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
     },
     {
-        id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
-        img: 'img/Cajero_screenshot.png',
-        glb: 'modelos_barra_servicio/punto_pago/Cajero.glb',
-        specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
-    },
+    id: 'cajero', nombre: 'Cajero', tag: 'PUNTO_PAGO',
+    img: 'img/Cajero_screenshot.png',
+    glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_barra_servicio/punto_pago/Cajero.glb',
+    specs: { 'Polígonos': '—', 'Materiales': '—', 'Peso': '—' },
+},
     {
         id: 'computadora', nombre: 'Computadora', tag: 'PUNTO_PAGO',
         img: 'img/Computadora_screenshot.png',
