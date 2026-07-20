@@ -84,14 +84,10 @@ ASSETS.forEach((asset, i) => catalogo.insertBefore(crearTarjeta(asset, i), sinRe
 const tarjetas = [...catalogo.querySelectorAll('.tarjeta-asset')];
 
 /* ==========================================================================
-   Hero — modelo destacado en vivo
+   Hero — modelo destacado (Ahora dinámico)
    ========================================================================== */
-(() => {
-    const destacado = ASSETS[0];
-    if (!destacado) return;
-
-    const contador = document.getElementById('stat-count');
-    if (contador) contador.textContent = String(ASSETS.length).padStart(2, '0');
+function actualizarHero(asset) {
+    if (!asset) return;
 
     const heroModel = document.getElementById('hero-model');
     const heroName = document.getElementById('hero-featured-name');
@@ -99,15 +95,25 @@ const tarjetas = [...catalogo.querySelectorAll('.tarjeta-asset')];
     const heroInspect = document.getElementById('hero-inspect');
 
     if (heroModel) {
-        heroModel.setAttribute('poster', destacado.img);
-        heroModel.src = destacado.glb;
+        heroModel.setAttribute('poster', asset.img);
+        heroModel.src = asset.glb;
     }
-    if (heroName) heroName.textContent = destacado.nombre;
-    if (heroTag) heroTag.textContent = destacado.tag;
+    if (heroName) heroName.textContent = asset.nombre;
+    if (heroTag) heroTag.textContent = asset.tag;
+    
+    // Si el botón de inspección tiene un listener previo, hay que reemplazarlo, 
+    // pero para empezar, simplemente actualizamos la referencia:
     if (heroInspect) {
-        heroInspect.addEventListener('click', () => { sfx.click(); abrirInspector(destacado, heroInspect); });
+        heroInspect.onclick = () => { sfx.click(); abrirInspector(asset, heroInspect); };
     }
-})();
+}
+
+// Inicialización: ponemos el primero al cargar la página
+actualizarHero(ASSETS[0]);
+
+// Actualizar también el contador de assets
+const contador = document.getElementById('stat-count');
+if (contador) contador.textContent = String(ASSETS.length).padStart(2, '0');
 
 /* ==========================================================================
    Preview 3D en hover + tilt + sonido (por tarjeta)
