@@ -472,7 +472,7 @@ function filterAssets(category) {
     }
 }
 
-const selector = document.getElementById('category-selector');
+selector = document.getElementById('category-selector');
 if (selector) {
     const optTodos = document.createElement('option');
     optTodos.value = 'TODOS';
