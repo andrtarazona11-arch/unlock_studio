@@ -1031,13 +1031,13 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     font-family: 'Rajdhani', sans-serif;
     letter-spacing: normal;
 }
-
-/* ========================================= */
-/* CORRECCIÓN RESPONSIVE PARA MÓVILES (< 768px) */
-/* ========================================= */
+/* ========================================================================== */
+/* BLOQUE CONSOLIDADO: CORRECCIONES RESPONSIVE Y MÓVIL (< 768px)               */
+/* ========================================================================== */
 @media (max-width: 768px) {
-  /* Hacer que la barra superior sea una columna vertical */
-  header.topbar {
+  /* --- 1. Encabezado y Topbar --- */
+  header.topbar, 
+  .topbar {
     display: flex !important;
     flex-direction: column !important;
     height: auto !important;
@@ -1063,7 +1063,7 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
 
   .logo-area img {
     max-height: 35px !important;
-    width: auto;
+    width: auto !important;
   }
 
   .topbar__crumb {
@@ -1074,25 +1074,19 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
   }
 
   .topbar__crumb .sep {
-    display: none !important; /* Oculta la barra "/" visualmente en móvil para ahorrar espacio */
+    display: none !important;
   }
 
   .category-selector, 
   .buscador, 
+  .buscador input,
   .sound-toggle {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  .buscador input {
-    width: 100% !important;
-  }
-}
-/* ========================================= */
-/* CORRECCIÓN PARA EL MODAL Y VISOR EN MÓVIL */
-/* ========================================= */
-@media (max-width: 768px) {
+  /* --- 2. Modal y Visor 3D --- */
   .modal {
     padding: 10px !important;
     align-items: center !important;
@@ -1105,31 +1099,6 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     overflow: hidden !important;
   }
 
-  .modal__body {
-    flex-direction: column !important;
-    height: auto !important;
-    max-height: calc(92vh - 60px) !important;
-    overflow-y: auto !important;
-  }
-
-  .contenido-modal {
-    height: 280px !important;
-    min-height: 280px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .modal__meta {
-    width: 100% !important;
-    max-height: none !important;
-    border-left: none !important;
-    border-top: 1px solid var(--line) !important;
-    padding: 16px !important;
-  }
-}
-/* ========================================= */
-/* CORRECCIÓN CRÍTICA DE ALTURA PARA VISOR MÓVIL */
-/* ========================================= */
-@media (max-width: 768px) {
   .modal__body {
     flex-direction: column !important;
     height: auto !important;
@@ -1155,5 +1124,6 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     overflow-y: auto !important;
     border-left: none !important;
     border-top: 1px solid var(--line) !important;
+    padding: 16px !important;
   }
 }
