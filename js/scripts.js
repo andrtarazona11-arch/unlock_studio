@@ -55,10 +55,14 @@ const ASSETS = [
     { id: 'portafiltro', nombre: 'Portafiltro', tag: '03_MAQUINARIA', img: 'img/Porta_Filtro_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_maquinaria_preparacion/Porta_Filtro.glb', specs: { 'Polígonos': '544', 'Materiales': 'Metal, Goma', 'Peso': '7.7 MB' } },
     { id: 'tamper', nombre: 'Tamper', tag: '03_MAQUINARIA', img: 'img/Tamper_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_maquinaria_preparacion/Tamper.glb', specs: { 'Polígonos': '206', 'Materiales': 'Metal, Madera', 'Peso': '6.8 MB' } },
 
-    // --- 05_NARRATIVA_AMBIENTAL---
+    // --- 04__VAJILLA ---
+
+    // --- 05_NARRATIVA---
     { id: 'biblioteca-grande', nombre: 'Biblioteca Grande', tag: '05_NARRATIVA', img: 'img/Bibliotecas_Grande_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_objetos_narrativa/Biblioteca_Grande.glb', specs: { 'Polígonos': '458', 'Materiales': 'Madera', 'Peso': '4.2 MB' } },
     { id: 'biblioteca-mediana', nombre: 'Biblioteca Mediana', tag: '05_NARRATIVA', img: 'img/Bibliotecas_Mediana_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_objetos_narrativa/Biblioteca_Mediana.glb', specs: { 'Polígonos': '382', 'Materiales': 'Madera', 'Peso': '3.8 MB' } },
     { id: 'biblioteca-mediana-v2', nombre: 'Biblioteca Mediana V2', tag: '05_NARRATIVA', img: 'img/Bibliotecas_Mediana_V2_screenshot.png', glb: 'https://raw.githubusercontent.com/andrtarazona11-arch/unlock_studio/main/modelos_objetos_narrativa/Biblioteca_Mediana_V2.glb', specs: { 'Polígonos': '2242', 'Materiales': 'Madera, Metal', 'Peso': '5.1 MB' } },
+
+    // --- 06_FOLLAJE ---
 
 ];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
