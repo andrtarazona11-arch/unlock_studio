@@ -1126,3 +1126,34 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     padding: 16px !important;
   }
 }
+/* ========================================= */
+/* CORRECCIÓN CRÍTICA DE ALTURA PARA VISOR MÓVIL */
+/* ========================================= */
+@media (max-width: 768px) {
+  .modal__body {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .contenido-modal {
+    width: 100% !important;
+    height: 320px !important;
+    min-height: 320px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+
+  .contenido-modal model-viewer {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 320px !important;
+  }
+
+  .modal__meta {
+    width: 100% !important;
+    max-height: 40vh !important;
+    overflow-y: auto !important;
+    border-left: none !important;
+    border-top: 1px solid var(--line) !important;
+  }
+}
