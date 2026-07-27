@@ -1032,29 +1032,60 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     letter-spacing: normal;
 }
 
-/* Ajustes responsivos para la barra superior en móviles */
+/* ========================================= */
+/* CORRECCIÓN RESPONSIVE PARA MÓVILES (< 768px) */
+/* ========================================= */
 @media (max-width: 768px) {
-  .topbar {
+  /* Hacer que la barra superior sea una columna vertical */
+  header.topbar {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
+    height: auto !important;
     padding: 12px !important;
+    gap: 12px !important;
   }
-  
-  .topbar__left, .topbar__right {
-    width: 100% !important;
+
+  .topbar__left, 
+  .topbar__right {
+    display: flex !important;
     flex-direction: column !important;
+    width: 100% !important;
     align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .logo-area {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .logo-area img {
+    max-height: 35px !important;
+    width: auto;
   }
 
   .topbar__crumb {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 8px !important;
+    width: 100% !important;
+    gap: 6px !important;
   }
 
-  .category-selector, .buscador {
+  .topbar__crumb .sep {
+    display: none !important; /* Oculta la barra "/" visualmente en móvil para ahorrar espacio */
+  }
+
+  .category-selector, 
+  .buscador, 
+  .sound-toggle {
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .buscador input {
+    width: 100% !important;
   }
 }
