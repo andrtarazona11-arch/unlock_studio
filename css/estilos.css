@@ -1089,3 +1089,40 @@ h3 .tick { color: var(--lime); margin-right: 4px; }
     width: 100% !important;
   }
 }
+/* ========================================= */
+/* CORRECCIÓN PARA EL MODAL Y VISOR EN MÓVIL */
+/* ========================================= */
+@media (max-width: 768px) {
+  .modal {
+    padding: 10px !important;
+    align-items: center !important;
+  }
+
+  .modal__frame {
+    max-height: 92vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .modal__body {
+    flex-direction: column !important;
+    height: auto !important;
+    max-height: calc(92vh - 60px) !important;
+    overflow-y: auto !important;
+  }
+
+  .contenido-modal {
+    height: 280px !important;
+    min-height: 280px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .modal__meta {
+    width: 100% !important;
+    max-height: none !important;
+    border-left: none !important;
+    border-top: 1px solid var(--line) !important;
+    padding: 16px !important;
+  }
+}
