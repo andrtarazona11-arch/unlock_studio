@@ -1,0 +1,13 @@
+{
+  "name": "unlock-studio",
+  "version": "1.0.0",
+  "description": "Catálogo interactivo de assets 3D de Unlock Studio.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "migrate": "node supabase/migrate.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.111.0"
+  }
+}
