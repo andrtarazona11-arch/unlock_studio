@@ -49,6 +49,7 @@ grant execute on function public.is_admin() to anon, authenticated;
 insert into public.admins (email) values
     ('jhazieloria@gmail.com'),
     ('andrtarazona11@gmail.com')
+    ('dailethblend@gmail.com'),
 on conflict (email) do nothing;
 
 -- 3) Seguridad de la tabla de modelos (RLS) --------------------------------
